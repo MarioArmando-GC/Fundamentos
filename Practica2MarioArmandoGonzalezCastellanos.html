@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practica 2</title>
+</head>
+
+<body>
+
+  <h1>Calculadora Basica</h1>
+  <input type="text" id="n1" placeholder="n1">
+  <input type="text" id="n2" placeholder="n2">
+
+
+  <button id="suma">+</button>
+  <button id="resta">-</button>
+  <button id="multiplicacion">*</button>
+  <button id="division">/</button>
+  <button id="calcular">Calcular</button>
+
+  <output id="r"></output>
+
+  <h1>formula de la Cuadratica</h1>
+  <form name="eq2">
+    Asigna los valores de a, b y c y presiona el botón<br />
+    <input type="text" name="a" size="2" /> x<sup>2</sup> +
+    <input type="text" name="b" size="2" /> x +
+    <input type="text" name="c" size="2" /> =
+    <br />
+    <br />
+    x1 = <input type="text" name="x1" /> <br />
+    x2 = <input type="text" name="x2" /> <br /><br />
+    <input type="button" value="Obten valores de X" onclick="javascript:resuelveEcuacion2doGrado();" />
+
+  </form>
+
+  <script>
+    document.querySelector('#suma').addEventListener('click', () => {
+      op = '+';
+    });
+    document.querySelector('#resta').addEventListener('click', () => {
+      op = '-';
+    });
+    document.querySelector('#multiplicacion').addEventListener('click', () => {
+      op = '*';
+    });
+    document.querySelector('#division').addEventListener('click', () => {
+      op = '/';
+    });
+
+    document.querySelector('#calcular').addEventListener('click', () => {
+      const n1 = parseInt(document.querySelector('#n1').value);
+      const n2 = parseInt(document.querySelector('#n2').value);
+      //const op = document.querySelector('#op').value;
+      let r;
+      if (op == '+') {
+        r = n1 + n2;
+      } else if (op == '-') {
+        r = n1 - n2;
+      } else if (op == '*') {
+        r = n1 * n2;
+      } else if (op == '/') {
+        r = n1 / n2;
+      }
+      document.querySelector('#r').innerHTML = r;
+      console.log(r);
+    });
+    function resuelveEcuacion2doGrado() {
+      let a = eval(document.eq2.a.value);
+      let b = eval(document.eq2.b.value);
+      let c = eval(document.eq2.c.value);
+      let x1;
+      let x2;
+      let r;
+
+      if (a != 0) {
+        r = b * b - 4 * a * c;
+        if (r >= 0) {
+          x1 = (-b + Math.sqrt(r)) / (2 * a);
+          x2 = (-b - Math.sqrt(r)) / (2 * a);
+
+          document.eq2.x1.value = x1;
+          document.eq2.x2.value = x2;
+          console.log(x1);
+          console.log(x2);
+        } else {
+          alert("Las raíces son números complejos");
+        }
+      } else {
+        alert("Los valores no corresponden a una ecuación de 2do grado");
+      }
+    }
+  </script>
+</body>
+
+</html>
