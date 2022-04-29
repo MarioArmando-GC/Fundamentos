@@ -5,16 +5,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Practica 3</title>
 </head>
 
 <body>
+  <h1>Calculadora </h1>
   <input type="text" id="n11" placeholder="Ingresa un Numero">
   <select id="op">
     <option value="+">+</option>
     <option value="-">-</option>
     <option value="*">*</option>
     <option value="/">/</option>
+    <option value="%">%</option>
   </select>
   <input type="text" id="n22" placeholder="Ingresa otro Numero">
 
@@ -36,6 +38,8 @@
         r = n1 * n2;
       } else if (op2 == '/') {
         r = n1 / n2;
+      } else if (op2 == '%') {
+        r = n1 % n2;
       }
       document.querySelector('#r2').innerHTML = r;
       console.log("Resultado", r);
