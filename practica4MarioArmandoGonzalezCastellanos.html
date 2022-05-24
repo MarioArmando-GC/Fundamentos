@@ -87,27 +87,10 @@
     }
     partir('Hola que tal');
     /*4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.*/
-    const repetirtexto = (texto = "Hola Mundo", repeticiones = 3) => {
-      arregloSalida = new Array(repeticiones)
-
-      if (typeof (texto) === "string") {
-        for (let index = 0; index < repeticiones; index++) {
-          arregloSalida[index] = texto
-        }
-        return arregloSalida
-      } else {
-        console.error("El primer parametro pasado a la función no es un string")
-      }
-      if (typeof (repeticiones) === "number") {
-        repeticiones = Math.round(repeticiones)
-        return cadena.split(separador)
-      } else {
-        console.error("El segundo parametro pasado a la función no es un numero")
-      }
+    const repetirtexto = (texto = "", veces = undefined) => {
+      for (let i = 1; i <= veces; i++)console.info(`${texto},${i}`);
     }
-    const Funcion4 = repetirtexto("Hola Mundo", 3)
-    console.log(Funcion4)
-
+    repetirtexto("Hola Mundo", 3)
   </script>
 </body>
 
